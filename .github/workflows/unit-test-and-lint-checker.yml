@@ -22,10 +22,10 @@ jobs:
         uses: abatilo/actions-poetry@v2.0.0
         with:
           poetry-version: ${{ matrix.poetry-version }}
-      - name: Setup project dependencies
-        run: |
-          poetry env use python${{ matrix.python-version }}
-          poetry install
+      - name: Setup Poetry Virtual Env
+        run: poetry env use python${{ matrix.python-version }}
+      - name: Install project dependencies
+        run: poetry install
       - name: Run unit tests with pytest
         run: poetry run pytest
       - name: Run linting checker with flake8
