@@ -5,7 +5,7 @@ on: push
 jobs:
   execute:
     strategy:
-        fail-fast: true
+        fail-fast: false
         matrix:
           python-version: [3.8, 3.9]
           poetry-version: [1.1.6]
@@ -28,6 +28,6 @@ jobs:
           poetry env use python${{ matrix.python-version }}
           poetry install
       - name: Run unit tests with pytest
-        run: pytest tests/unit
+        run: poetry run pytest tests/unit
       - name: Run linting checker with flake8
         run: flake8
