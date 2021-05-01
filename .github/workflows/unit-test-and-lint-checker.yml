@@ -24,6 +24,10 @@ jobs:
           poetry-version: ${{ matrix.poetry-version }}
       - name: Setup Poetry Virtual Env
         run: poetry env use python${{ matrix.python-version }}
+      - name: Turn off Poetry virtual environments
+        run: poetry config virtualenvs.create false
+      - name: Install cysystemd build dependencies
+        run: sudo apt-get update && sudo apt-get install -y gcc libsystemd-dev python3-dev
       - name: Install project dependencies
         run: poetry install
       - name: Run unit tests with pytest
