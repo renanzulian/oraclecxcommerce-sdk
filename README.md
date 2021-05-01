@@ -67,7 +67,10 @@
 [comment]: <> (  </p>)
 </p>
 
+## Documentation
 
+Check the folder **docs** to understand how the structure's project works. There you can find some diagrams and another
+import subjects about the project.
 
 [comment]: <> (<!-- TABLE OF CONTENTS -->)
 
