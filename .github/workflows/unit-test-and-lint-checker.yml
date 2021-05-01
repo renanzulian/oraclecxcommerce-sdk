@@ -11,8 +11,10 @@ jobs:
           poetry-version: [1.1.6]
     runs-on: ubuntu-latest
     steps:
-      - run: Checkout to ${GITHUB_REF##*/}
-      - uses: actions/checkout@v2
+      - name: Checkout current branch
+        uses: actions/checkout@v2
+      - name: Check branch name
+        run: Checkout to ${GITHUB_REF##*/}
       - name: Setup python ${{ matrix.python-version }} 
         uses: actions/setup-python@v2
         with:
