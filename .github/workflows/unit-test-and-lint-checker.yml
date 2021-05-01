@@ -13,8 +13,6 @@ jobs:
     steps:
       - name: Checkout current branch
         uses: actions/checkout@v2
-      - name: Check branch name
-        run: echo running on branch ${GITHUB_REF##*/}
       - name: Setup python ${{ matrix.python-version }} 
         uses: actions/setup-python@v2
         with:
@@ -29,8 +27,6 @@ jobs:
       - name: Install project dependencies
         run: poetry install
       - name: Run unit tests with pytest
-        run: |
-          ls
-          poetry run pytest
+        run: poetry run pytest
       - name: Run linting checker with flake8
-        run: flake8
+        run: poetry run flake8
