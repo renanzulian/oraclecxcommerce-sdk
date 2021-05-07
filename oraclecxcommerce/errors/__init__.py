@@ -1,3 +1,3 @@
-from .occ_errors import InvalidOccCredentialsError
+from .occ_errors import OccAuthenticatorError
 
-__all__ = ["InvalidOccCredentialsError"]
+__all__ = ["OccAuthenticatorError"]
