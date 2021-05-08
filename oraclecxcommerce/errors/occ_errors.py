@@ -5,4 +5,4 @@ class OracleCXCommerceError(Exception):
 
 class OccAuthenticatorError(OracleCXCommerceError):
     def __init__(self, message: str):
-        super(message)
+        OracleCXCommerceError(message)
