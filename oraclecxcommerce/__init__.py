@@ -1,9 +1,9 @@
 from .occ import OracleCommerceCloud
-from .services import OccAuthenticator
+from .services import OccSession
 from .modules import OrdersModule, ProductsModule, ProfilesModule, SkusModule
 
 __all__ = [
-    "OracleCommerceCloud", "OccAuthenticator",
+    "OracleCommerceCloud", "OccSession",
     "OrdersModule", "ProductsModule",
     "ProfilesModule", "SkusModule"
 ]

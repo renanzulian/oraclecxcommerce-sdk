@@ -1,9 +1,10 @@
 from oraclecxcommerce.errors import OccAuthenticatorError
 from requests import Session, ConnectionError
 from time import time
+from urllib.parse import urljoin
 
 
-class OccAuthenticator:
+class OccSession:
     def __init__(self, commerce_url: str, app_key: str) -> None:
         self._auth_session = Session()  # TODO: DEFAULT TIMEOUT AND RETRIES
         self._commerce_url = commerce_url
@@ -11,8 +12,12 @@ class OccAuthenticator:
         self._next_authentication: int
         self._pull_access()
 
-    @property
-    def session(self) -> Session:
+    def get(self, path, **kwargs):
+        session = self._get_authenticated_session()
+        url = urljoin(self._commerce_url, path)
+        return session.get(url, **kwargs)
+
+    def _get_authenticated_session(self) -> Session:
         if not self._is_authenticated():
             self._pull_access()
         return self._auth_session

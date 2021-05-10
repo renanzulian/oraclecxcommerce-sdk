@@ -1,3 +1,3 @@
 class ProductsModule:
-    def __init__(self):
+    def __init__(self, ):
         raise NotImplementedError()
